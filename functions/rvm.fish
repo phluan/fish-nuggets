@@ -23,6 +23,7 @@ function __handle_rvmrc_stuff --on-variable PWD
       else
         if test -e .rvmrc -o -e .ruby-version -o -e .ruby-gemset
           eval "rvm reload" > /dev/null
+          eval "rvm rvmrc load" >/dev/null
           break
         else
           set cwd (dirname "$cwd")
