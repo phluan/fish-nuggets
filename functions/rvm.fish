@@ -4,7 +4,7 @@ function rvm --description='Ruby enVironment Manager'
   bash -c 'PATH=$GEM_HOME/bin:$PATH;source $(which rvm | sed "s/bin/scripts/"); rvm "$@"; status=$?; env > "$0"; exit $status' $env_file $argv
 
   # apply rvm_* and *PATH variables from the captured environment
-  and eval (grep '^rvm\|^[^=]*PATH\|^GEM_HOME' $env_file | grep -v '_clr=' | sed '/^[^=]*PATH/s/:/" "/g; s/^/set -xg /; s/=/ "/; s/$/" ;/; s/(//; s/)//')
+  and eval (grep -E '^rvm\|^[^=]*PATH\|^GEM_HOME' $env_file | grep -v '_clr=' | sed '/^[^=]*PATH/s/:/" "/g; s/^/set -xg /; s/=/ "/; s/$/" ;/; s/(//; s/)//')
   # needed under fish >= 2.2.0
   and set -xg GEM_PATH (echo $GEM_PATH | sed 's/ /:/g')
 
