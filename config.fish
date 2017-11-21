@@ -4,17 +4,14 @@ for p in /usr/bin /usr/local/bin /usr/local/mysql/bin ~/.gem/bin ~/.gem/ruby/1.8
 	end
 end
 
+set -x PATH $PATH /Users/LuanPham/Documents/personal/command-line-scripts
+
 set -x EDITOR "vim"
 
 set fish_greeting ""
 set -x CLICOLOR 1
 
 set -x BROWSER open
-
-cd ~
-
-set -x JAVA_HOME "/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home"
-
 
 # pull in a local, ignored-by-git config file
 if test -f ~/.config/fish/config.local.fish
